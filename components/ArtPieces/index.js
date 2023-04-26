@@ -7,28 +7,18 @@ import { useArtStore } from "../../stores/artpieces";
 export function ArtPieces() {
   const url = "https://example-apis.vercel.app/api/art";
 
-  // const artPiecesInfo = useArtStore((state) => state.fetch(url));
-  const { artPiecesInfo, fetch } = useArtStore();
+  const { artPiecesInfo, setArtPiecesInfo } = useArtStore();
 
-  // const { data, error, isLoading } = useSWR(url);
+  const { data, error, isLoading } = useSWR(url);
+
   useEffect(() => {
-    fetch(url);
-  }, []);
-  // const data = true;
-  // console.log(data);
+    setArtPiecesInfo(data);
+  }, [data]);
 
-  // const setArtPiecesInfo = useArtStore((state) => state.setArtPiecesInfo);
-  // setArtPiecesInfo(data);
+  if (error) return <div>Failed to Load</div>;
+  if (isLoading) return <div>Is loading</div>;
 
-  // const artPieces = useArtStore((state) => state.getArtPieces());
-  // console.log(artPieces);
-
-  // if (error) return <div>Failed to Load</div>;
-  // if (isLoading) return <div>Is loading</div>;
-  // if (data) {
-  // here pass to zustand the data and then grab it.
-  // setArtPiecesInfo(data);
-
+  console.log("data: ", data);
   console.log("Art Pieces: ", artPiecesInfo);
 
   return <h1>Hola</h1>;
@@ -42,4 +32,3 @@ export function ArtPieces() {
   //   })}
   //</ul>
 }
-// }
