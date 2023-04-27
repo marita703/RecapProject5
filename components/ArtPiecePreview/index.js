@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useArtStore } from "../../stores/artpieces";
 import { useRouter } from "next/router";
+import { FavoriteButton } from "../FavoriteButton";
 
 export function ArtPiecePreview() {
   const { artPiecesInfo } = useArtStore();
@@ -26,8 +27,10 @@ export function ArtPiecePreview() {
           width={200}
           height={200}
         />
+        <div>
+          <FavoriteButton />
+        </div>
       </>
-      ;
     </section>
   );
 }
