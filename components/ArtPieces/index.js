@@ -21,14 +21,25 @@ export function ArtPieces() {
   console.log("data: ", data);
   console.log("Art Pieces: ", artPiecesInfo);
 
-  return <h1>Hola</h1>;
-  // <ul>
-  //   {data.map((artPiece) => {
-  //     <li key={artPiece.slug}>
-  //       <h3>{artPiece.name}</h3>
-  //       <p>{artPiece.artist}</p>
-  //       <Image src={artPiece.imageSoure} alt="Art piece image" />
-  //     </li>;
-  //   })}
-  //</ul>
+  return (
+    <>
+      <h1>Hola</h1>;
+      <ul>
+        {artPiecesInfo.map((artPiece, index) => {
+          return (
+            <li key={index}>
+              <h3>{artPiece.name}</h3>
+              <p>{artPiece.artist}</p>
+              <Image
+                src={artPiece.imageSource}
+                alt="Art piece image"
+                width={200}
+                height={200}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
 }
