@@ -4,6 +4,7 @@ import { useArtStore } from "../stores/artpieces";
 import { useEffect } from "react";
 import useSWR from "swr";
 import styled from "styled-components";
+import { Navigation } from "../components/Navigation";
 
 const fetcher = (...args) => {
   console.log("Fetching Data");
@@ -37,9 +38,7 @@ export default function App({ Component, pageProps }) {
         <StyledHeader>Art Gallery</StyledHeader>
         <Component {...pageProps} />
         <StyledNavigation>
-          <StyledLi>Favorites</StyledLi>
-          <StyledLi>Spotlight</StyledLi>
-          <StyledLi>Preview</StyledLi>
+          <Navigation />
         </StyledNavigation>
       </SWRConfig>
     </>
@@ -74,8 +73,4 @@ const StyledNavigation = styled.div`
   bottom: 0;
   width: 100%;
   border-radius: 5px;
-`;
-
-const StyledLi = styled.li`
-  list-style-type: none;
 `;

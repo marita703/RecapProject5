@@ -1,23 +1,20 @@
-// this component should render a list of Art pieces
-
 import Image from "next/image";
 
 import { useArtStore } from "../../stores/artpieces";
+import styled from "styled-components";
 import Link from "next/link";
 
 export function ArtPieces() {
   const { artPiecesInfo } = useArtStore();
 
-  console.log("data: ", artPiecesInfo);
-
   return (
     <>
-      <ul>
+      <StyledUL>
         {artPiecesInfo.map((artPiece) => {
           return (
-            <li key={artPiece.slug}>
+            <styledLi key={artPiece.slug}>
               <Link href={`/artpieces/${artPiece.slug}`}>
-                <h3>{artPiece.name}</h3>
+                <p className="styledLi_title">{artPiece.name}</p>
                 <p>{artPiece.artist}</p>
                 <Image
                   src={artPiece.imageSource}
@@ -26,10 +23,25 @@ export function ArtPieces() {
                   height={200}
                 />
               </Link>
-            </li>
+            </styledLi>
           );
         })}
-      </ul>
+      </StyledUL>
     </>
   );
 }
+
+const StyledUL = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 10px;
+  gap: 10px;
+`;
+const styledLi = styled.li`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
