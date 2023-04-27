@@ -18,14 +18,22 @@ export default function App({ Component, pageProps }) {
 
   const { data, error, isLoading } = useSWR(url, fetcher);
 
+  // const newArtPiecesInfo = data?.map((artPiece) => {
+  //   return { ...artPiece, isFavorite: false };
+  // });
+
+  // console.log("newArtPiecesInfo: ", newArtPiecesInfo);
+
   useEffect(() => {
-    setArtPiecesInfo(data);
+    setArtPiecesInfo(
+      data?.map((artPiece) => {
+        return { ...artPiece, isFavorite: false, comments: [] };
+      })
+    );
   }, [data, setArtPiecesInfo]);
 
   if (error) return <div>Failed to Load</div>;
   if (isLoading) return <div>Is loading</div>;
-
-  console.log("data: ", data);
 
   return (
     <>

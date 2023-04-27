@@ -1,6 +1,5 @@
 // This will render a list of the comments (createElement)
 import { useEffect, useState } from "react";
-import { uid } from "uid";
 
 export function Comments({ allComments }) {
   // something.push(coms);

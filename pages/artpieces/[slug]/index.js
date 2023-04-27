@@ -18,8 +18,6 @@ export default function SlugPiecePreview() {
 
   return (
     <div>
-      <h1>hola</h1>
-      <ArtPiecePreview />
       <ArtPieceDetails />
       <CommentForm handleSubmit={handleSubmit} />
       <Comments allComments={allComments} />

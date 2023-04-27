@@ -1,32 +1,35 @@
-import Image from "next/image";
 import { FavoriteButton } from "../FavoriteButton";
 import { useArtStore } from "../../stores/artpieces";
 import styled from "styled-components";
 import Link from "next/link";
+import { ArtPiecePreview } from "../ArtPiecePreview";
 
 export function ArtPieces() {
   const { artPiecesInfo } = useArtStore();
+  console.log("Art pieces info: ", artPiecesInfo);
 
   return (
     <>
       <StyledUL>
         {artPiecesInfo.map((artPiece) => {
           return (
-            <styledLi key={artPiece.slug}>
-              <Link href={`/artpieces/${artPiece.slug}`}>
-                <p className="styledLi_title">{artPiece.name}</p>
-                <p>{artPiece.artist}</p>
-                <Image
-                  src={artPiece.imageSource}
-                  alt="Art piece image"
-                  width={200}
-                  height={200}
+            <>
+              <styledLi>
+                <Link href={`/artpieces/${artPiece.slug}`} key={artPiece.slug}>
+                  <ArtPiecePreview
+                    name={artPiece.name}
+                    artist={artPiece.artist}
+                    imageSource={artPiece.imageSource}
+                  />
+                </Link>
+              </styledLi>
+              <div>
+                <FavoriteButton
+                  slug={artPiece.slug}
+                  isFavorite={artPiece.isFavorite}
                 />
-                <div>
-                  <FavoriteButton />
-                </div>
-              </Link>
-            </styledLi>
+              </div>
+            </>
           );
         })}
       </StyledUL>
