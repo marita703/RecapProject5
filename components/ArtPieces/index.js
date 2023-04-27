@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { FavoriteButton } from "../FavoriteButton";
 import { useArtStore } from "../../stores/artpieces";
 import styled from "styled-components";
@@ -14,15 +13,23 @@ export function ArtPieces() {
       <StyledUL>
         {artPiecesInfo.map((artPiece) => {
           return (
-            <styledLi key={artPiece.slug}>
-              <Link href={`/artpieces/${artPiece.slug}`}>
-                <ArtPiecePreview
-                  name={artPiece.name}
-                  artist={artPiece.artist}
-                  imageSource={artPiece.imageSource}
+            <>
+              <styledLi>
+                <Link href={`/artpieces/${artPiece.slug}`} key={artPiece.slug}>
+                  <ArtPiecePreview
+                    name={artPiece.name}
+                    artist={artPiece.artist}
+                    imageSource={artPiece.imageSource}
+                  />
+                </Link>
+              </styledLi>
+              <div>
+                <FavoriteButton
+                  slug={artPiece.slug}
+                  isFavorite={artPiece.isFavorite}
                 />
-              </Link>
-            </styledLi>
+              </div>
+            </>
           );
         })}
       </StyledUL>

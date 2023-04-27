@@ -31,7 +31,10 @@ export function ArtPieceDetails() {
           <p>Year: {element.year}</p>
           <p>Genre: {element.genre}</p>
           <div>
-            <FavoriteButton slug={element.slug} />
+            <FavoriteButton
+              slug={element.slug}
+              isFavorite={element.isFavorite}
+            />
           </div>
         </>
       </section>

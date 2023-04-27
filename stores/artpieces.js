@@ -23,13 +23,5 @@ export const useArtStore = create((set, get) => ({
         }
       }),
     }));
-
-    // get().artPiecesInfo.map((artPiece) => {
-    //   if (slug === artPiece.slug) {
-    //     return { ...artPiece, isFavorite: !artPiece.isFavorite };
-    //   } else {
-    //     return artPiece;
-    //   }
-    // });
   },
 }));

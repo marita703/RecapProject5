@@ -12,7 +12,7 @@ export function Navigation() {
           <Link href="/">Home</Link>
         </StyledLi>
         <StyledLi>
-          <Link href="/pages/favourites">Favourites</Link>
+          <Link href="/favorites">Favourites</Link>
         </StyledLi>
         <StyledLi>
           <Link href="/artpieces/">Gallery</Link>
