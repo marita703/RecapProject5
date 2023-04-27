@@ -8,7 +8,6 @@ export function ArtPieces() {
 
   return (
     <>
-      <h1>Hola</h1>;
       <ul>
         {artPiecesInfo.map((artPiece, index) => {
           return (
