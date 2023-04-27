@@ -2,26 +2,16 @@ import { CommentForm } from "../components/CommentForm";
 import { Comments } from "../components/Comments";
 import { useState } from "react";
 
-export function SlugFunc() {
-  const [allComments, setAllComments] = useState([]);
+export function SlugFunc() {}
+//renders the comments for the comment sections
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    setAllComments((current) => {
-      return [...current, form.elements.leavecomment.value];
-    });
-  }
-  //renders the comments for the comment sections
+return (
+  ////this shit needs to be somewhere for comment section so.
 
-  return (
-    ////this shit needs to be somewhere for comment section so.
+  <div>
+    <h1>Hello from Next.js</h1>
 
-    <div>
-      <h1>Hello from Next.js</h1>
-
-      <CommentForm handleSubmit={handleSubmit} />
-      <Comments coms={leftComment} />
-    </div>
-  );
-}
+    <CommentForm handleSubmit={handleSubmit} />
+    <Comments coms={leftComment} />
+  </div>
+);
