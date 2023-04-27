@@ -10,7 +10,7 @@ export function ArtPieceDetails() {
 
   const router = useRouter();
   const { slug } = router.query;
-  console.log(slug);
+  console.log("DETAILS: ", artPiecesInfo);
 
   let element = artPiecesInfo.find(
     (ele) => ele.slug.toLowerCase().replace(" ", "-") === slug
@@ -31,7 +31,7 @@ export function ArtPieceDetails() {
           <p>Year: {element.year}</p>
           <p>Genre: {element.genre}</p>
           <div>
-            <FavoriteButton />
+            <FavoriteButton slug={element.slug} />
           </div>
         </>
       </section>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { FavoriteButton } from "../FavoriteButton";
 
-export function ArtPiecePreview({ name, artist, imageSource }) {
+export function ArtPiecePreview({ name, artist, imageSource, slug }) {
   return (
     <section>
       <>
@@ -16,7 +16,7 @@ export function ArtPiecePreview({ name, artist, imageSource }) {
           height={200}
         />
         <div>
-          <FavoriteButton />
+          <FavoriteButton slug={slug} />
         </div>
       </>
     </section>

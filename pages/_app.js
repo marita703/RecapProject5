@@ -35,8 +35,6 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>Failed to Load</div>;
   if (isLoading) return <div>Is loading</div>;
 
-  console.log("data: ", data);
-
   return (
     <>
       <GlobalStyle />

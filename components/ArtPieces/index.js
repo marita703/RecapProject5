@@ -7,6 +7,7 @@ import { ArtPiecePreview } from "../ArtPiecePreview";
 
 export function ArtPieces() {
   const { artPiecesInfo } = useArtStore();
+  console.log("Art pieces info: ", artPiecesInfo);
 
   return (
     <>
