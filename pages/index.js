@@ -6,6 +6,8 @@ export default function HomePage() {
     <div>
       <h1>Hello from Next.js</h1>
 
+      <ArtPieces />
+
       <SpotLight />
     </div>
   );
