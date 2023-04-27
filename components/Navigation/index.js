@@ -15,7 +15,7 @@ export function Navigation() {
           <Link href="/pages/favourites">Favourites</Link>
         </StyledLi>
         <StyledLi>
-          <Link href="/pages/preview">Preview</Link>
+          <Link href="/artpieces/">Gallery</Link>
         </StyledLi>
       </StyledNavigation>
     </>
