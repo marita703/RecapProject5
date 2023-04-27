@@ -4,6 +4,8 @@ import { SpotLight } from "../components/SpotLight";
 export default function HomePage() {
   return (
     <div>
+
+
       <SpotLight />
       <ArtPieces />
     </div>
