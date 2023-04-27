@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import { useArtStore } from "../../stores/artpieces";
+import styled from "styled-components";
 
 export function SpotLight() {
   const { artPiecesInfo } = useArtStore();
@@ -23,15 +24,31 @@ export function SpotLight() {
 
   return (
     <>
-      <section>
-        <Image
+      <StyledSection>
+        <StyledImage
           src={randomObject.imageSource}
           alt="Art piece image"
           width={200}
           height={200}
         />
-        <p> artist:{randomObject.artist}</p>
-      </section>
+        <p> artist: {randomObject.artist}</p>
+      </StyledSection>
     </>
   );
 }
+
+const StyledSection = styled.section`
+  display: flex;
+  width :600px
+  height: 200px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  font-size: 40px;
+  `;
+
+const StyledImage = styled.img`
+  width: 500px;
+  height: 500px;
+`;
