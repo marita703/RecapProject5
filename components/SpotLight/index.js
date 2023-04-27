@@ -7,7 +7,6 @@ import { useArtStore } from "../../stores/artpieces";
 
 export function SpotLight() {
   const { artPiecesInfo } = useArtStore();
-  console.log("SPOTLIGHT: ", artPiecesInfo);
 
   const [randomObject, setRandomObject] = useState({});
 
@@ -31,6 +30,7 @@ export function SpotLight() {
           width={200}
           height={200}
         />
+        <p> artist:{randomObject.artist}</p>
       </section>
     </>
   );
