@@ -49,6 +49,6 @@ const StyledSection = styled.section`
   `;
 
 const StyledImage = styled.img`
-  width: 500px;
-  height: 500px;
+  width: 90%;
+  height: 700px;
 `;

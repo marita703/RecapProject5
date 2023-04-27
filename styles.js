@@ -14,4 +14,8 @@ export default createGlobalStyle`
     padding-bottom: 100px;
   }
 
+  img {
+    object-fit: cover;
+  }
+
 `;

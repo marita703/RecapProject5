@@ -1,27 +1,44 @@
 // needs to render navigation links: spotlight, favPieces, preview
 
 import Link from "next/link";
-import { useArtStore } from "../../stores/artpieces";
-import { BrowseRouter, Routes, Route } from "react-router-dom";
-import Favourites from "./../../pages";
-import HomePage from "./../../pages";
-import preview from "./../../pages";
+
+import styled from "styled-components";
 
 export function Navigation() {
   return (
     <>
-      <h2>i am navigation</h2>
-      <ul>
-        <li>
+      <StyledNavigation>
+        <StyledLi>
           <Link href="/">Home</Link>
-        </li>
-        <li>
+        </StyledLi>
+        <StyledLi>
           <Link href="/pages/favourites">Favourites</Link>
-        </li>
-        <li>
+        </StyledLi>
+        <StyledLi>
           <Link href="/pages/preview">Preview</Link>
-        </li>
-      </ul>
+        </StyledLi>
+      </StyledNavigation>
     </>
   );
 }
+const StyledNavigation = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  flex-direction: row;
+  align-items: center;
+  background-color: lightblue;
+  gap: 1.5em;
+  font-size: 25px;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+`;
+
+const StyledLi = styled.li`
+  list-style-type: none;
+`;
