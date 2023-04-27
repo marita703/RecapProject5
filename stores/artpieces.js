@@ -3,5 +3,12 @@ import { create } from "zustand";
 export const useArtStore = create((set, get) => ({
   artPiecesInfo: [],
 
-  onToggleFavorite: () => {},
+  setArtPiecesInfo: (newArtPiecesInfo) => {
+    if (newArtPiecesInfo)
+      set((state) => ({
+        artPiecesInfo: [...state.artPiecesInfo, ...newArtPiecesInfo],
+      }));
+  },
+
+  getArtPieces: () => get().artPiecesInfo,
 }));
