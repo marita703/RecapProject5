@@ -1,18 +1,6 @@
 // Returns a form to writte comment and has onSubmitComent prop. It has to have a submit button
 
-import { Comments } from "../Comments";
-import { useState } from "react";
-
-export function CommentForm() {
-  const [leftComment, setComment] = useState("something");
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    setComment(form.elements.leavecomment.value);
-    console.log(leftComment);
-    return setComment;
-  }
+export function CommentForm({ handleSubmit }) {
   return (
     <>
       <h3>Leave your comment here!</h3>
@@ -29,7 +17,7 @@ export function CommentForm() {
         <p></p>
         <button type="submit">Submit your comment!</button>
       </form>
-      <Comments coms={leftComment} />
+      ;
     </>
   );
 }

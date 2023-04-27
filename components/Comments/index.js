@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { uid } from "uid";
 
-export function Comments(coms = "a thing") {
+export function Comments({ coms }) {
   const [something, setThing] = useState([]);
 
   something.push(coms);
@@ -11,9 +11,11 @@ export function Comments(coms = "a thing") {
     <>
       <h1>this is a comment section</h1>
       <p>
-        {something.map((element) => {
-          return <p key={uid}>{element.coms}</p>;
-        })}
+        <ul>
+          {something.map((ele) => {
+            return <li key={ele}>{ele}</li>;
+          })}
+        </ul>
       </p>
     </>
   );
