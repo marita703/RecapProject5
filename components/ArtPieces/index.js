@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import { FavoriteButton } from "../FavoriteButton";
 import { useArtStore } from "../../stores/artpieces";
 import styled from "styled-components";
 import Link from "next/link";
@@ -22,6 +22,9 @@ export function ArtPieces() {
                   width={200}
                   height={200}
                 />
+                <div>
+                  <FavoriteButton />
+                </div>
               </Link>
             </styledLi>
           );
