@@ -1,6 +1,8 @@
 import Image from "next/image";
+
 import { useArtStore } from "../../stores/artpieces";
 import styled from "styled-components";
+import Link from "next/link";
 
 export function ArtPieces() {
   const { artPiecesInfo } = useArtStore();
@@ -8,17 +10,19 @@ export function ArtPieces() {
   return (
     <>
       <StyledUL>
-        {artPiecesInfo.map((artPiece, index) => {
+        {artPiecesInfo.map((artPiece) => {
           return (
-            <styledLi key={index}>
-              <p className="styledLi_title">{artPiece.name}</p>
-              <p>{artPiece.artist}</p>
-              <Image
-                src={artPiece.imageSource}
-                alt="Art piece image"
-                width={200}
-                height={200}
-              />
+            <styledLi key={artPiece.slug}>
+              <Link href={`/artpieces/${artPiece.slug}`}>
+                <p className="styledLi_title">{artPiece.name}</p>
+                <p>{artPiece.artist}</p>
+                <Image
+                  src={artPiece.imageSource}
+                  alt="Art piece image"
+                  width={200}
+                  height={200}
+                />
+              </Link>
             </styledLi>
           );
         })}
