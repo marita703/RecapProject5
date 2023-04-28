@@ -7,14 +7,24 @@ import { useState } from "react";
 import styled from "styled-components";
 
 export default function SlugPiecePreview() {
-  const [allComments, setAllComments] = useState(["something"]);
+  const [allComments, setAllComments] = useState([]);
 
   function handleSubmit(event) {
+    // event.preventDefault();
+    // const form = event.target;
+    // setAllComments((current) => {
+    //   return [...current, form.elements.leavecomment.value];
+    // });
     event.preventDefault();
     const form = event.target;
+    const newComment = {
+      text: form.elements.leavecomment.value,
+      timestamp: new Date().toISOString(), // add timestamp to comment object
+    };
     setAllComments((current) => {
-      return [...current, form.elements.leavecomment.value];
+      return [...current, newComment];
     });
+    form.reset();
   }
 
   return (
