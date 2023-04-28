@@ -64,7 +64,7 @@ describe("Testing Zustand", () => {
   it("renders an artist in each artpiece", () => {
     render(<ArtPieces />);
 
-    const artists = screen.getAllByRole("paragraph");
+    const artists = screen.getAllByRole("heading");
     expect(artists.length).toBe(dummyData.length);
   });
 });
