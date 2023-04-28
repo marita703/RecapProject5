@@ -7,6 +7,7 @@ export function Comments({ allComments }) {
   return (
     <>
       <h1>this is a comment section</h1>
+
       <p>
         <ul>
           {allComments.map((comment) => (
@@ -16,6 +17,7 @@ export function Comments({ allComments }) {
           ))}
         </ul>
       </p>
+
     </>
   );
 }

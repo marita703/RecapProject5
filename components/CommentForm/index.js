@@ -5,7 +5,9 @@ export function CommentForm({ handleSubmit }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label for="leavecomment">Leave your comment here:</label>
+
+        <label name="leavecomment">Leave your comment here!</label>
+
         <p></p>
         <textarea
           id="leavecomment"
