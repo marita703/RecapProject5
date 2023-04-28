@@ -1,6 +1,5 @@
-import { ArtPiecePreview } from "../../../components/ArtPiecePreview";
 import { ArtPieceDetails } from "../../../components/ArtPieceDetails";
-import { useRouter } from "next/router";
+
 import { CommentForm } from "../../../components/CommentForm";
 import { Comments } from "../../../components/Comments";
 import { useState } from "react";

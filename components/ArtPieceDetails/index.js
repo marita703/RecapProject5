@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FavoriteButton } from "../FavoriteButton";
 import { useArtStore } from "../../stores/artpieces";
 import { useRouter } from "next/router";
+import { PaletaDeColores } from "../PaletaDeColores";
 
 export function ArtPieceDetails() {
   const { artPiecesInfo } = useArtStore();
@@ -31,6 +32,8 @@ export function ArtPieceDetails() {
         <div>
           <FavoriteButton slug={element.slug} isFavorite={element.isFavorite} />
         </div>
+
+        <PaletaDeColores slug={element.slug} />
       </>
     </section>
   );
