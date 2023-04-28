@@ -7,13 +7,11 @@ export function Comments({ allComments }) {
   return (
     <>
       <h1>this is a comment section</h1>
-      <p>
-        <ul>
-          {allComments.map((ele) => {
-            return <li key={ele}>{ele}</li>;
-          })}
-        </ul>
-      </p>
+      <ul>
+        {allComments.map((ele) => {
+          return <li key={ele}>{ele}</li>;
+        })}
+      </ul>
     </>
   );
 }
