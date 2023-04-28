@@ -7,10 +7,15 @@ import { ArtPiecePreview } from "../components/ArtPiecePreview";
 export default function Favorites() {
   const { artPiecesInfo } = useArtStore();
   console.log("Art pieces info: ", artPiecesInfo);
+  console.log("I am favourite");
 
-  {
-    artPiecesInfo.filter((artPiece) => {
-      if (artPiece.isFavorite) {
+  const favArtPieces = artPiecesInfo.filter(
+    (favPiece) => favPiece.isFavorite == true
+  );
+
+  return (
+    <>
+      {favArtPieces.map((artPiece) => {
         return (
           <>
             <StyledUL>
@@ -22,20 +27,21 @@ export default function Favorites() {
                     imageSource={artPiece.imageSource}
                   />
                 </Link>
+                <div>
+                  <FavoriteButton
+                    slug={artPiece.slug}
+                    isFavorite={artPiece.isFavorite}
+                  />
+                </div>
               </styledLi>
-              <div>
-                <FavoriteButton
-                  slug={artPiece.slug}
-                  isFavorite={artPiece.slug}
-                />
-              </div>
             </StyledUL>
           </>
         );
-      }
-    });
-  }
+      })}
+    </>
+  );
 }
+
 const StyledUL = styled.ul`
   list-style: none;
   display: flex;
