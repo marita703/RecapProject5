@@ -18,6 +18,7 @@ export default createGlobalStyle`
 
   img {
     object-fit: cover;
+    max-width: 800px;
   }
 
   a {
