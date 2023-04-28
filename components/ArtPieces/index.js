@@ -11,24 +11,24 @@ export function ArtPieces() {
   return (
     <>
       <StyledUL>
-        {artPiecesInfo.map((artPiece) => {
+        {artPiecesInfo.map((artPiece, index) => {
           return (
             <>
-              <styledLi>
-                <Link href={`/artpieces/${artPiece.slug}`} key={artPiece.slug}>
+              <StyledLi key={index}>
+                <Link href={`/artpieces/${artPiece.slug}`}>
                   <ArtPiecePreview
                     name={artPiece.name}
                     artist={artPiece.artist}
                     imageSource={artPiece.imageSource}
                   />
                 </Link>
-              </styledLi>
-              <div>
-                <FavoriteButton
-                  slug={artPiece.slug}
-                  isFavorite={artPiece.isFavorite}
-                />
-              </div>
+                <div>
+                  <FavoriteButton
+                    slug={artPiece.slug}
+                    isFavorite={artPiece.isFavorite}
+                  />
+                </div>
+              </StyledLi>
             </>
           );
         })}
@@ -45,7 +45,7 @@ const StyledUL = styled.ul`
   font-size: 10px;
   gap: 10px;
 `;
-const styledLi = styled.li`
+const StyledLi = styled.li`
   display: flex;
   justify-content: center;
   flex-direction: row;
