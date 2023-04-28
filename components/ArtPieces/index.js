@@ -10,34 +10,29 @@ export function ArtPieces() {
 
   return (
     <>
-      <StyledUL>
-        {artPiecesInfo.map((artPiece) => {
-          return (
-            <>
-              <div>
-                <StyledLi>
-                  <Link
-                    href={`/artpieces/${artPiece.slug}`}
-                    key={artPiece.slug}
-                  >
-                    <ArtPiecePreview
-                      name={artPiece.name}
-                      artist={artPiece.artist}
-                      imageSource={artPiece.imageSource}
-                    />
-                  </Link>
-                </StyledLi>
-                <div>
-                  <FavoriteButton
-                    slug={artPiece.slug}
-                    isFavorite={artPiece.isFavorite}
+      {artPiecesInfo.map((artPiece, index) => {
+        return (
+          <StyledUL key={index}>
+            <div>
+              <StyledLi>
+                <Link href={`/artpieces/${artPiece.slug}`} key={artPiece.slug}>
+                  <ArtPiecePreview
+                    name={artPiece.name}
+                    artist={artPiece.artist}
+                    imageSource={artPiece.imageSource}
                   />
-                </div>
+                </Link>
+              </StyledLi>
+              <div>
+                <FavoriteButton
+                  slug={artPiece.slug}
+                  isFavorite={artPiece.isFavorite}
+                />
               </div>
-            </>
-          );
-        })}
-      </StyledUL>
+            </div>
+          </StyledUL>
+        );
+      })}
     </>
   );
 }

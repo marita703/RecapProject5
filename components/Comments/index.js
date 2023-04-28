@@ -8,16 +8,12 @@ export function Comments({ allComments }) {
     <>
       <h1>this is a comment section</h1>
 
-      <p>
-        <ul>
-          {allComments.map((comment) => (
-            <li key={comment.timestamp}>
-              {comment.text} ({new Date(comment.timestamp).toLocaleString()})
-            </li>
-          ))}
+      {allComments.map((comment, index) => (
+        <ul key={index + 1}>
+          <li key={comment.timestamp}>{comment.text}</li>
+          <li key={index}> {new Date(comment.timestamp).toLocaleString()}</li>
         </ul>
-      </p>
-
+      ))}
     </>
   );
 }
