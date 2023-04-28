@@ -55,7 +55,7 @@ export default function App({ Component, pageProps }) {
 const StyledHeader = styled.header`
   display: flex;
   background-color: lightblue;
-  height: 100px;
+  height: 90px;
   font-size: 45px;
   align-items: center;
   justify-content: center;

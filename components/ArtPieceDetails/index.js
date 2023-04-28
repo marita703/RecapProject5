@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { FavoriteButton } from "../FavoriteButton";
 import { useArtStore } from "../../stores/artpieces";
-import styled from "styled-components";
 import { useRouter } from "next/router";
 
 export function ArtPieceDetails() {
@@ -17,42 +16,22 @@ export function ArtPieceDetails() {
   );
 
   return (
-    <>
-      <section>
-        <>
-          <h3>Name:{element.name}</h3>
-          <p>Artist:{element.artist}</p>
-          <Image
-            src={element.imageSource}
-            alt="Art piece image"
-            width={200}
-            height={200}
-          />
-          <p>Year: {element.year}</p>
-          <p>Genre: {element.genre}</p>
-          <div>
-            <FavoriteButton
-              slug={element.slug}
-              isFavorite={element.isFavorite}
-            />
-          </div>
-        </>
-      </section>
-    </>
+    <section>
+      <>
+        <h3>Name: {element.name}</h3>
+        <p>Artist: {element.artist}</p>
+        <Image
+          src={element.imageSource}
+          alt="Art piece image"
+          width={200}
+          height={200}
+        />
+        <p>Year: {element.year}</p>
+        <p>Genre: {element.genre}</p>
+        <div>
+          <FavoriteButton slug={element.slug} isFavorite={element.isFavorite} />
+        </div>
+      </>
+    </section>
   );
 }
-
-const StyledUL = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  font-size: 10px;
-  gap: 10px;
-`;
-const styledLi = styled.li`
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;

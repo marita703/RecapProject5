@@ -27,7 +27,7 @@ const StyledNavigation = styled.div`
   flex-direction: row;
   align-items: center;
   background-color: lightblue;
-  gap: 1.5em;
+  gap: 3.5em;
   font-size: 25px;
   align-items: center;
   position: fixed;

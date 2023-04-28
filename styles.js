@@ -10,8 +10,10 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: system-ui;
-    padding-top: 20px;
+    padding-top: 80px;
     padding-bottom: 100px;
+    background-color: whitesmoke;
+   
   }
 
   img {
