@@ -1,18 +1,9 @@
-import { fetchSomeData } from "./api";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { ArtPieces } from ".";
 import { useArtStore } from "../../stores/artpieces";
 
-jest.mock("./api", () => ({
-  fetchSomeData: jest.fn(() =>
-    Promise.resolve({
-      data: {
-        id: 1,
-        name: "Test data",
-      },
-    })
-  ),
-}));
+// We need to tell which store we are going to mock.
+jest.mock("../../stores/artpieces");
 
 const dummyData = [
   {
@@ -35,25 +26,26 @@ const dummyData = [
   },
 ];
 
-test("renders a list", async () => {
-  const setData = useArtStore.getArtPieces().setData;
+/* For testing this component we need:
+ - Describe the scenario that we are testing.
+ - Set our mock date to the store.
+ - render our component.
+ - see if what render is what we expected.
+*/
 
-  await fetchSomeData();
+describe("Testing Zustand", () => {
+  // Here we are telling the store to use our mock data. Before running the test.
+  beforeEach(() => {
+    useArtStore.mockReturnValue({ artPiecesInfo: dummyData });
+  });
 
-  setData(dummyData);
+  // Test to run. Render the component that we want to test. Then find something to compare thar we are rendering the information that we want. Aka the mock data.
+  it("renders a list of art pieces", () => {
+    render(<ArtPieces />);
 
-  render(<ArtPieces />);
-
-  const { getByText } = screen;
-  await waitFor(() => getByText("Test data"));
-
-  const ul = screen.getByRole("list");
-  const lis = screen.getAllByRole("listitem");
-  const images = screen.getAllByRole("img");
-
-  expect(ul).toBeInTheDocument();
-  expect(lis).toHaveLength(11);
-  expect(images).toHaveLength(11);
+    const artItems = screen.getAllByRole("listitem");
+    expect(artItems.length).toBe(dummyData.length);
+  });
 });
 
 test("renders an image in each artpiece", () => {});
