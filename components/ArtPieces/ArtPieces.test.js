@@ -56,7 +56,7 @@ test("renders a list", async () => {
   expect(images).toHaveLength(11);
 });
 
-test("renders an image in each artpieces", () => {});
+test("renders an image in each artpiece", () => {});
 
 test("renders a tite in each artpiece", () => {});
 

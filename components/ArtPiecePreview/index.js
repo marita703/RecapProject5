@@ -1,7 +1,6 @@
 // This should render a preview with title, image and artist
 
 import Image from "next/image";
-import { FavoriteButton } from "../FavoriteButton";
 
 export function ArtPiecePreview({ name, artist, imageSource }) {
   return (
