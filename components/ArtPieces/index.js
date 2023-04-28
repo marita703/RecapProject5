@@ -14,20 +14,25 @@ export function ArtPieces() {
         {artPiecesInfo.map((artPiece) => {
           return (
             <>
-              <styledLi>
-                <Link href={`/artpieces/${artPiece.slug}`} key={artPiece.slug}>
-                  <ArtPiecePreview
-                    name={artPiece.name}
-                    artist={artPiece.artist}
-                    imageSource={artPiece.imageSource}
-                  />
-                </Link>
-              </styledLi>
               <div>
-                <FavoriteButton
-                  slug={artPiece.slug}
-                  isFavorite={artPiece.isFavorite}
-                />
+                <StyledLi>
+                  <Link
+                    href={`/artpieces/${artPiece.slug}`}
+                    key={artPiece.slug}
+                  >
+                    <ArtPiecePreview
+                      name={artPiece.name}
+                      artist={artPiece.artist}
+                      imageSource={artPiece.imageSource}
+                    />
+                  </Link>
+                </StyledLi>
+                <div>
+                  <FavoriteButton
+                    slug={artPiece.slug}
+                    isFavorite={artPiece.isFavorite}
+                  />
+                </div>
               </div>
             </>
           );
@@ -45,7 +50,7 @@ const StyledUL = styled.ul`
   font-size: 10px;
   gap: 10px;
 `;
-const styledLi = styled.li`
+const StyledLi = styled.li`
   display: flex;
   justify-content: center;
   flex-direction: row;
