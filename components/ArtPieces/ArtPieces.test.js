@@ -46,10 +46,25 @@ describe("Testing Zustand", () => {
     const artItems = screen.getAllByRole("listitem");
     expect(artItems.length).toBe(dummyData.length);
   });
+
+  it("renders an image in each artpiece", () => {
+    render(<ArtPieces />);
+
+    const artImages = screen.getAllByRole("img");
+    expect(artImages.length).toBe(dummyData.length);
+  });
+
+  it("renders a tite in each artpiece", () => {
+    render(<ArtPieces />);
+
+    const titles = screen.getAllByRole("heading", { level: 3 });
+    expect(titles.length).toBe(dummyData.length);
+  });
+
+  it("renders an artist in each artpiece", () => {
+    render(<ArtPieces />);
+
+    const artists = screen.getAllByRole("paragraph");
+    expect(artists.length).toBe(dummyData.length);
+  });
 });
-
-test("renders an image in each artpiece", () => {});
-
-test("renders a tite in each artpiece", () => {});
-
-test("renders an artist in each artpiece", () => {});
