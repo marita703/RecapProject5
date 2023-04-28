@@ -7,11 +7,17 @@ export function Comments({ allComments }) {
   return (
     <>
       <h1>this is a comment section</h1>
-      <ul>
-        {allComments.map((ele) => {
-          return <li key={ele}>{ele}</li>;
-        })}
-      </ul>
+
+      <p>
+        <ul>
+          {allComments.map((comment) => (
+            <li key={comment.timestamp}>
+              {comment.text} ({new Date(comment.timestamp).toLocaleString()})
+            </li>
+          ))}
+        </ul>
+      </p>
+
     </>
   );
 }
