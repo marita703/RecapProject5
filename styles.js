@@ -18,4 +18,14 @@ export default createGlobalStyle`
     object-fit: cover;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover {
+    color: hotpink;
+    font-weight: bold;
+  }
+
 `;
